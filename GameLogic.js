@@ -38,12 +38,5 @@ Game.prototype.checkLetters = function (guessedLetter) {
 
 };
 
-Game.prototype.whatState = function() {
-    if(this.displayWord.indexOf("_") === -1) {
-		console.log("You win!");
-	} else if (this.guessesRemaining < 1) {
-		console.log("You lose!");
-	};
-};
 
 module.exports = Game;
