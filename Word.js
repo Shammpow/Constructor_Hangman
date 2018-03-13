@@ -1,20 +1,29 @@
 var Letter = require("./letter")
 
 function Word(word) {
-    this.wordArr = word,
-    this.splitLetters = function(word) {
-        var character = this.wordArr.split('');
-        var charAr = [];
-        charAr = character;
 
-        for (i = 0; i < charAr.length; i++) {
-            console.log(charAr[i]);
-            new Letter (charAr[i], charAr[i])
+    for (i = 0; i < word.length; i++) {
+        console.log(word[i]);
+        new Letter(word[i])
+    }
+};
+
+Word.prototype.displayWordToGuess = function() {
+    var letterArr = [];
+    for (letter in this) {
+        if (this[letter].showLetter) {
+            letterArr.push(this[letter].showLetter())
+        }
+    };
+    return letterArr.join(' ')
+};
+
+Word.prototype.checkLetters = function(guessedLetter) {
+    for(letter in this) {
+        if(this[letter].userGuess) {
+            this[letter].userGuess(guessedLetter)
         }
     }
-}
-
-var foo = new Word("foo");
-foo.splitLetters(foo);
+};
 
 module.exports = Word;
