@@ -12,7 +12,7 @@ Word.prototype.displayWordToGuess = function() {
     var letterArr = [];
     for (letter in this) {
         if (this.letter.showLetter) {
-            letterArr.push(this[letter].showLetter())
+            letterArr.push(this.letter.showLetter())
         }
     };
     return letterArr.join(' ')
