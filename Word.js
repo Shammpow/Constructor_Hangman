@@ -11,7 +11,7 @@ function Word(word) {
 Word.prototype.displayWordToGuess = function() {
     var letterArr = [];
     for (letter in this) {
-        if (this[letter].showLetter) {
+        if (this.letter.showLetter) {
             letterArr.push(this[letter].showLetter())
         }
     };
@@ -20,8 +20,8 @@ Word.prototype.displayWordToGuess = function() {
 
 Word.prototype.checkLetters = function(guessedLetter) {
     for(letter in this) {
-        if(this[letter].userGuess) {
-            this[letter].userGuess(guessedLetter)
+        if(this.letter.userGuess) {
+            this.letter.userGuess(guessedLetter)
         }
     }
 };

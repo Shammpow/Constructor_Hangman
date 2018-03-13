@@ -9,9 +9,6 @@ function newGame() {
         name: 'choice'
     };
 
-    inquirer.prompt(startPrompt).then(function(res) {
-        var game = new Game(res.choice);
-    })
 }
 
 function guessingFunc(game) {
